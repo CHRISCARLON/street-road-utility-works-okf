@@ -110,4 +110,37 @@ site.process([".html"], (pages) => {
   }
 });
 
+// GitHub Pages *project* sites are served under /<repo>/, so every root-absolute
+// URL (/styles.css, /bundles/…, the rewritten .md links and backlinks above)
+// must be prefixed with that base path or it 404s. The build workflow sets
+// SITE_BASE_PATH=/<repo>; locally it is unset, so `deno task serve` stays at /.
+const BASE = (Deno.env.get("SITE_BASE_PATH") ?? "").replace(/\/+$/, "");
+
+if (BASE) {
+  site.process([".html"], (pages) => {
+    for (const page of pages) {
+      const doc = page.document;
+      if (!doc) continue;
+      for (const el of doc.querySelectorAll("[href], [src]")) {
+        const e = el as unknown as {
+          getAttribute(n: string): string | null;
+          setAttribute(n: string, v: string): void;
+        };
+        for (const attr of ["href", "src"] as const) {
+          const v = e.getAttribute(attr);
+          if (!v) continue;
+          // internal root-absolute only: skip external (//, https:), anchors (#),
+          // and anything already carrying the base prefix.
+          if (
+            v.startsWith("/") && !v.startsWith("//") &&
+            v !== BASE && !v.startsWith(BASE + "/")
+          ) {
+            e.setAttribute(attr, BASE + v);
+          }
+        }
+      }
+    }
+  });
+}
+
 export default site;

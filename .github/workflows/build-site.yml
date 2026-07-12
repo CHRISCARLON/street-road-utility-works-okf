@@ -28,6 +28,10 @@ jobs:
 
       - name: Build site
         run: deno task build
+        env:
+          # Project Pages serve under /<repo>/; prefix all root-absolute URLs
+          # with it so CSS, links and assets resolve. _config.ts reads this.
+          SITE_BASE_PATH: /${{ github.event.repository.name }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
