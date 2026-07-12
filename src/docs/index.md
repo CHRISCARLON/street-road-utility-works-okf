@@ -9,14 +9,13 @@ Explainers that sit alongside the generated OKF bundles.
 
 ## MUDDI
 
-Background info on the MUDDI model. These notes now live inside the MUDDI
-bundle, under [Reading](/bundles/muddi/reading/):
+Background info on the MUDDI model (these notes also live inside the MUDDI
+bundle under [Reading](/bundles/muddi/reading/)).
 
 - [MUDDI Conceptual Model](/bundles/muddi/reading/muddi-conceptual-model/) — the
-  OGC 23-024 standard on its own: the abstract class hierarchy, attributes,
-  associations and graph topology.
+  OGC 23-024 standard on its own: the abstract class hierarchy, attributes and associations.
 - [MUDDI → UK Excavation Profile: How the Bridge Works](/bundles/muddi/reading/muddi-uk-excavation-bridge/)
-  — how the UK profile is derived from and extends the conceptual model, and why
+  — how the UK profile is derived from and extends the MUDDI conceptual model, and why
   each change is permitted.
 - [MUDDI UK Excavation Profile — Deep Dive](/bundles/muddi/reading/uk-excavation-profile/)
   — the concrete UK profile in full: schemas, codelists, the nine utility types,

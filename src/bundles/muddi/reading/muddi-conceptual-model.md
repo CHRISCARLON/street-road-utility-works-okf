@@ -1,6 +1,6 @@
 ---
 type: Reference
-title: MUDDI Conceptual Model
+title: MUDDI Conceptual Model (Overview)
 description: The OGC 23-024 standard on its own — the abstract MUDDI class hierarchy, its attributes, associations and graph topology.
 tags: ["reading", "conceptual"]
 timestamp: '2026-07-04T00:00:00Z'
@@ -10,15 +10,17 @@ timestamp: '2026-07-04T00:00:00Z'
 **Published:** July 2024  
 **Source:** https://docs.ogc.org/is/23-024/23-024.html
 
-This document describes the OGC MUDDI standard only. For how the UK Excavation Profile implements and extends it, see [muddi-uk-excavation-bridge.md](muddi-uk-excavation-bridge.md).
+This document describes the OGC MUDDI standard only. For how the UK Excavation Profile implements and extends it please see [muddi-uk-excavation-bridge.md](muddi-uk-excavation-bridge.md).
 
 ---
 
 ## Why MUDDI Exists
 
-Underground utility networks are invisible. When a contractor digs, they rely on paper plans, fragmented PDFs from multiple utility owners, and manual phone calls to establish what is in the ground. In developed urban areas there are **30–40 excavations per mile per year**. A single utility strike can kill or injure workers, cut power/water/communications for thousands, and cost hundreds of thousands to repair.
+When a an individual or organisation excavates in the highway, they can often rely on paper plans, and fragmented PDFs from multiple utility owners, to establish what is in the ground.
 
-Before MUDDI, every utility owner stored data differently — different field names, different geometry types, different coordinate systems, different file formats. Combining data from six utility owners into a single view required manual translation work every time.
+Underground utility networks are invisible and in developed urban areas there are **[30–40 excavations per mile per year](https://docs.ogc.org/per/17-090r1.html)**.
+
+Most utility owners store data differently. This means different field names, naming conventions, ontologies, geometry types, coordinate systems, file formats and database implementations. Combining data from six utility owners into a single view requires manual translation work every time - due to the amount of variation. ([OGC MUDDI Engineering Report](https://docs.ogc.org/per/17-090r1.html))
 
 MUDDI defines a **minimum common vocabulary** for underground asset data so that:
 1. Any system can exchange data with any other without a custom mapping
@@ -51,7 +53,7 @@ Ten classes must be implemented for a system to claim MUDDI conformance:
 | `NetworkNode` | A vertex in the network graph — a valve, junction, meter |
 | `NetworkAccessory` | Supports or protects the network but does not convey |
 
-These ten feature classes (plus the `AbstractValueType` type and the `LogicalName` helper, making 12 classes in the Core package) are enough to represent any utility network in a topology-aware, data-quality-aware, provenance-aware way. A minimal MUDDI implementation — say, a simple pipe register — only needs these.
+These ten feature classes (plus the `AbstractValueType` type and the `LogicalName` helper, making 12 classes in the Core package) are enough to represent any utility network. A minimal MUDDI implementation, say, a simple pipe register, only needs these.
 
 ### Extended (optional)
 
@@ -102,7 +104,7 @@ The UK Excavation Profile implements **both** Core and Extended. A lightweight u
 
 Every attribute in the MUDDI conceptual model is typed as `AbstractValueType`. This is intentional: **the standard prescribes semantics, not concrete data types**. An implementer profile resolves abstract types to concrete ones (text, integer, geometry, codelist, FK…).
 
-This design decision is what makes MUDDI internationally reusable. A UK profile can use EPSG:27700 geometry. A Dutch profile can use RD New. A US profile can use NAD83. The standard stays valid for all of them because it never hard-codes a type.
+This design decision is what makes MUDDI internationally reusable. A UK profile can use EPSG:27700 geometry. A US profile can use NAD83. The standard always stays valid for all of them because it never hard-codes a type.
 
 ---
 
@@ -166,7 +168,7 @@ Any conforming profile that renames a MUDDI term must produce a `LogicalName` re
 
 ## Composite Types
 
-The **conceptual** model here contains only one value type: `AbstractValueType`. The structured measurement types below — which wrap a value with its unit and (where relevant) measurement method — are **not part of this conceptual model**. They are introduced in the MUDDI PDF / logical layer, where the abstract type is resolved into concrete column structures, and are listed here only for orientation:
+The **conceptual** model here contains only one value type: `AbstractValueType`. The structured measurement types below, which wrap a value with its unit and (where relevant) measurement method, are **not part of this conceptual model**. They are introduced in the MUDDI PDF / logical layer, where the abstract type is resolved into concrete column structures, and are listed here only for orientation:
 
 | Type (logical layer) | Fields | Purpose |
 |------|--------|---------|

@@ -21,7 +21,7 @@ The UK Excavation Profile looks quite different from bare MUDDI, but every diffe
 
 Every attribute in the MUDDI conceptual model is typed `AbstractValueType`. This means the standard deliberately **does not say** whether `objectID` is a UUID or an integer, whether `sf_geometry` is a 2D linestring or a 3D solid, whether `assetOwnerID` is a text string or a foreign key.
 
-The profile resolves all of these. The UK Excavation Profile's resolution (note: the conceptual identifiers do not survive as literal same-named columns — they resolve into the profile's `*assigneduniqueid` / `*_fk` column family, so do not grep for `objectid`/`recordid`/`assetownerid`):
+The UK Excavation Profile resolves all of these.
 
 | MUDDI abstract attribute | UK Profile concrete resolution |
 |--------------------------|--------------------------------|

@@ -135,7 +135,7 @@ backdrop boolean, startingdepthtype text, endingdepthtype text
 dataproviderid_fk varchar(38) NOT NULL  -- FK to organisations.organisation
 ```
 
-> **Note on composite types:** The profile flattens structured types like `MUDDIDepthType` into two columns: `depth_depth real` and `depth_unitofmeasure text`. Similarly `MUDDILengthType` → `_length` + `_unitofmeasure`. This is why column counts are high.
+**Note on composite types:** The profile flattens structured types like `MUDDIDepthType` into two columns: `depth_depth real` and `depth_unitofmeasure text`. Similarly `MUDDILengthType` → `_length` + `_unitofmeasure`. This is why column counts are high.
 
 ---
 
@@ -147,7 +147,7 @@ dataproviderid_fk varchar(38) NOT NULL  -- FK to organisations.organisation
 | Electricity | `electricity*` | HV and LV cables |
 | Fuel & Chemicals | `fuelandchemicals*` | Pipelines carrying oil, chemicals |
 | Gas | `gas*` | Natural gas distribution and transmission |
-| Sewer | `sewer*` | Foul water sewers |
+| Sewer | `sewer*` |  wastewater |
 | Telco | `telco*` | Telecoms cables and fibre |
 | Thermal | `thermal*` | District heating/cooling networks |
 | Transport Signal | `transportsignal*` | Traffic signals, rail signalling cables |
@@ -364,7 +364,7 @@ These are the **21 `relationship_*` tables in the `coredata` schema**. Five more
 
 9 utility types × 15 feature roles = 135 concrete tables. Every cell is `{utilitytype}{featurerole}`.
 
-| Feature role | drainage | electricity | fuelandchemicals | gas | sewer | telco | thermal | transportsignal | water |
+| Feature role | drainage | electricity | fuel and chemicals | gas | sewer | telco | thermal | transport signal | water |
 |---|---|---|---|---|---|---|---|---|---|
 | `network` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | `networklink` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
