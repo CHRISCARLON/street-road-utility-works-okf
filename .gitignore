@@ -3,3 +3,4 @@ _cache
 .DS_Store
 .vscode
 deno.lock
+src/docs/forward-works-plans-future.md
