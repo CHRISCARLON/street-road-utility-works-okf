@@ -1,0 +1,37 @@
+# ── Site-wide data ──────────────────────────────────────────────────────────
+# The single registry of OKF bundles published by this site. The header nav
+# (_includes/layout.vto) and the landing page (index.vto) are both generated
+# from this list, so publishing a new bundle is: drop it under src/bundles/<key>/
+# with its own _data.yml, then add one entry here.
+site_title: OKF Model Catalogue
+
+bundles:
+  - key: muddi
+    title: MUDDI
+    url: /bundles/muddi/
+    blurb: >-
+      The OGC MUDDI conceptual model (23-024) and its UK Excavation Profile
+      logical implementation (v2.1.3) — underground utility infrastructure.
+    # Section links surfaced on the landing card and in the header dropdown.
+    sections:
+      - { label: "Conceptual Model", url: "/bundles/muddi/conceptual/" }
+      - { label: "UK Excavation Profile", url: "/bundles/muddi/uk-excavation-profile/" }
+      - { label: "Compare", url: "/bundles/muddi/compare/" }
+      - { label: "Reading", url: "/bundles/muddi/reading/" }
+
+  - key: nsg
+    title: NSG
+    url: /bundles/nsg/
+    blurb: >-
+      The National Street Gazetteer Data Transfer Format 8.1 (DTF8.1) — the CSV
+      record format Local Highway Authorities use to submit street data.
+    sections:
+      - { label: "Records", url: "/bundles/nsg/records/" }
+      - { label: "References", url: "/bundles/nsg/references/" }
+
+# Long-form background notes that sit alongside the bundles (not an OKF bundle).
+further_reading:
+  url: /docs/
+  blurb: >-
+    Long-form background: the source standards, and notes bridging the
+    conceptual models to their logical profiles.

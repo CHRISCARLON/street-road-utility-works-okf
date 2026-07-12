@@ -1,0 +1,17 @@
+---
+layout: layout.vto
+---
+<article class="concept">
+  {{ if type }}
+  <div class="concept-meta">
+    <span class="type-badge type-{{ type.toLowerCase().replace(/[^a-z0-9]+/g, "-") }}">{{ type }}</span>
+    {{ for tag of tags || [] }}<span class="tag">{{ tag }}</span>{{ /for }}
+  </div>
+  {{ /if }}
+  {{ if title }}<h1 class="concept-title">{{ title }}</h1>{{ /if }}
+  {{ if description }}<p class="concept-desc">{{ description }}</p>{{ /if }}
+  {{ if resource }}<p class="concept-resource"><code>{{ resource }}</code></p>{{ /if }}
+  <div class="concept-body">
+    {{ content }}
+  </div>
+</article>

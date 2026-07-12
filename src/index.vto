@@ -1,0 +1,43 @@
+---
+layout: layout.vto
+title: OKF Model Catalogue
+---
+<section class="hero">
+  <h1>Street &amp; roadworks data standards (in Open Knowledge Format)</h1>
+  <p class="lede">
+    A catalogue of the data standards behind UK street and road works — e.g. the buried
+    infrastructure and the streets themselves published as
+    <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog">Open Knowledge Format</a>
+    bundles.
+  </p>
+</section>
+
+<section class="card-grid">
+  {{ for bundle of bundles }}
+  <div class="card card-bundle">
+    <a class="card-bundle-head" href="{{ bundle.url }}">
+      <h2>{{ bundle.title }}</h2>
+      <p>{{ bundle.blurb }}</p>
+    </a>
+    <div class="card-bundle-links">
+      {{ for section of bundle.sections }}
+      <a href="{{ section.url }}">{{ section.label }}</a>
+      {{ /for }}
+    </div>
+  </div>
+  {{ /for }}
+
+  <a class="card" href="{{ further_reading.url }}">
+    <h2>Further Reading</h2>
+    <p>{{ further_reading.blurb }}</p>
+  </a>
+</section>
+
+<a class="coming-soon" href="/docs/forward-works-plans/">
+  <span class="coming-soon-tag">Coming soon</span>
+  <span class="coming-soon-text">
+    A <strong>MUDDI extension for forward plans and capacity reporting</strong> — building on
+    the NUAR precedent for sharing sensitive infrastructure data at scale.
+    <span class="coming-soon-more">Read the case for a standard →</span>
+  </span>
+</a>

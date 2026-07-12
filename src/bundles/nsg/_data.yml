@@ -1,0 +1,6 @@
+# Applies to every page under this OKF bundle.
+# `okf_root` tells the link-rewriter in _config.ts the site path this bundle's
+# root maps to, so bundle-root-absolute markdown links (/records/street.md)
+# resolve correctly. It must match the bundle's output URL prefix.
+layout: okf-concept.vto
+okf_root: /bundles/nsg

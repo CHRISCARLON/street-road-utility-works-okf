@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title || site_title }}</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">Utility<span>·</span>OKF</a>
+      <nav>
+        {{ for bundle of bundles }}
+        <div class="nav-group">
+          <a class="nav-group-title" href="{{ bundle.url }}">{{ bundle.title }}</a>
+          <div class="nav-group-menu">
+            {{ for section of bundle.sections }}
+            <a href="{{ section.url }}">{{ section.label }}</a>
+            {{ /for }}
+          </div>
+        </div>
+        {{ /for }}
+        <a href="{{ further_reading.url }}">Further Reading</a>
+      </nav>
+    </header>
+    <main class="container">
+      {{ content }}
+    </main>
+    <footer class="site-footer">
+      A catalogue of data models rendered as
+      <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog">Google Open Knowledge Format</a>
+      bundles — cross-linked markdown concepts for people and agents to traverse.
+    </footer>
+  </body>
+</html>
